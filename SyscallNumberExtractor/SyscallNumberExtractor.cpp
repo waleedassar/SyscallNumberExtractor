@@ -45,7 +45,7 @@ char* GetExportedFunctionNameFromAddress(ulonglong PeHeader,uchar* Address)
 		ulong NumFunctions = pExport->NumberOfFunctions;
 		ulong NumNames = pExport->NumberOfNames;
 		ulong BaseX = pExport->Base;
-		printf("Base: %X\r\n",BaseX);
+		//printf("Base: %X\r\n",BaseX);
 
 		ulong rva_AddressOfFunctions = pExport->AddressOfFunctions;
 		ulong* pAddressOfFunctions = (ulong*)(PeHeader + rva_AddressOfFunctions);
@@ -332,6 +332,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		FlushFileBuffers(hFile);
 		CloseHandle(hFile);
 	}
+
 
 	HANDLE hFileM = CreateFile(L"macros.txt",GENERIC_ALL,FILE_SHARE_READ,0,CREATE_ALWAYS,0,0);
 	if(hFileM != INVALID_HANDLE_VALUE)
