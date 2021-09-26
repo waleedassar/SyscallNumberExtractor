@@ -250,6 +250,16 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 
 	strcat(pOutputString,"{");
+
+
+	char* pOutputMacros = (char*)VirtualAlloc(0,0x10000,MEM_COMMIT,PAGE_READWRITE);
+	if(!pOutputMacros)
+	{
+		printf("Error allocating memory for output macro strings.\r\n");
+		VirtualFree(pOutputString,0,MEM_RELEASE);
+		VirtualFree(pAllSyscallS,0,MEM_RELEASE);
+		return -77;
+	}
 	
 	for(ulong ix = 0; ix < CountSyscallsNt; ix++)
 	{
@@ -283,8 +293,17 @@ int _tmain(int argc, _TCHAR* argv[])
 		strcat(pOutputString,pAllSyscallS[ix].FunctionName);
 		strcat(pOutputString,"\",\r\n");
 
+		strcat(pOutputMacros,"#define macr_");
+		strcat(pOutputMacros,pAllSyscallS[ix].FunctionName);
+		strcat(pOutputMacros," 0x");
 
+		char wSyscallNummmm[0x50]={0};
+		_ultoa(pAllSyscallS[ix].SyscallNumber,wSyscallNummmm,0x10);
+		strcat(pOutputMacros,wSyscallNummmm);
+		strcat(pOutputMacros,"\r\n");
 
+		//printf("%s\r\n",pOutputMacros);
+		//getchar();
 
 		//if( strncmp(pAllSyscallS[ix].FunctionName,"Nt",2) )
 		//{
@@ -314,7 +333,23 @@ int _tmain(int argc, _TCHAR* argv[])
 		CloseHandle(hFile);
 	}
 
+	HANDLE hFileM = CreateFile(L"macros.txt",GENERIC_ALL,FILE_SHARE_READ,0,CREATE_ALWAYS,0,0);
+	if(hFileM != INVALID_HANDLE_VALUE)
+	{
+		lenX = strlen(pOutputMacros);
+		ulong NumWritten = 0;
+		if(!WriteFile(hFileM,pOutputMacros,lenX,&NumWritten,0))
+		{
+			printf("Error writinf to file.\r\n");
+			ExitProcess(0);
+		}
+		FlushFileBuffers(hFileM);
+		CloseHandle(hFileM);
+	}
 
+
+
+	VirtualFree(pOutputMacros,0,MEM_RELEASE);
 	VirtualFree(pOutputString,0,MEM_RELEASE);
 
 

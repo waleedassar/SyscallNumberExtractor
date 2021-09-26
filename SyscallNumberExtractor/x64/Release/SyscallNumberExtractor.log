@@ -1,17 +1,14 @@
-﻿Build started 9/24/2021 8:58:32 PM.
+﻿Build started 9/26/2021 1:51:44 PM.
      1>Project "F:\kernel\Projects\SyscallNumberExtractor\SyscallNumberExtractor\SyscallNumberExtractor.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"x64\Release\SyscallNumberExtractor.pch" /Fo"x64\Release\\" /Fd"x64\Release\vc110.pdb" /Gd /TP /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Release\SyscallNumberExtractor.pch" /Fo"x64\Release\\" /Fd"x64\Release\vc110.pdb" /Gd /TP /errorReport:prompt DynamicFunction.cpp SyscallCount.cpp SyscallNumberExtractor.cpp
-         DynamicFunction.cpp
-         SyscallCount.cpp
-     1>SyscallCount.cpp(36): warning C4244: '=' : conversion from '__int64' to 'int', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Release\SyscallNumberExtractor.pch" /Fo"x64\Release\\" /Fd"x64\Release\vc110.pdb" /Gd /TP /errorReport:prompt SyscallNumberExtractor.cpp
          SyscallNumberExtractor.cpp
      1>SyscallNumberExtractor.cpp(59): warning C4244: 'initializing' : conversion from 'unsigned __int64' to 'unsigned long', possible loss of data
      1>SyscallNumberExtractor.cpp(116): warning C4244: 'initializing' : conversion from 'unsigned __int64' to 'unsigned long', possible loss of data
      1>SyscallNumberExtractor.cpp(202): warning C4244: 'initializing' : conversion from 'unsigned __int64' to 'unsigned long', possible loss of data
-     1>SyscallNumberExtractor.cpp(296): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned long', possible loss of data
+     1>SyscallNumberExtractor.cpp(301): warning C4244: 'argument' : conversion from 'unsigned __int64' to 'unsigned long', possible loss of data
+     1>SyscallNumberExtractor.cpp(315): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned long', possible loss of data
+     1>SyscallNumberExtractor.cpp(339): warning C4267: '=' : conversion from 'size_t' to 'unsigned long', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"F:\kernel\Projects\SyscallNumberExtractor\x64\Release\SyscallNumberExtractor.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\kernel\Projects\SyscallNumberExtractor\x64\Release\SyscallNumberExtractor.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\kernel\Projects\SyscallNumberExtractor\x64\Release\SyscallNumberExtractor.lib" /MACHINE:X64 x64\Release\DynamicFunction.obj
          x64\Release\stdafx.obj
@@ -24,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.19
+Time Elapsed 00:00:01.15
